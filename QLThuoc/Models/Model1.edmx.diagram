@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c01210cf2304bca8d349583fb87d28d" Name="Diagram1">
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.C__MigrationHistory" Width="1.5" PointX="1" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.AspNetRole" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.AspNetUserClaim" Width="1.5" PointX="7.375" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.AspNetUserLogin" Width="1.5" PointX="7.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.CTPXUAT" Width="1.5" PointX="0.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.KIEMKE" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.NHANVIEN" Width="1.5" PointX="3.375" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.PNHAP" Width="1.5" PointX="3.625" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.PXUAT" Width="1.5" PointX="0.625" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_CTPXUAT_PXUAT1" ManuallyRouted="false" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_KIEMKE_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_PNHAP_NHANVIEN1" ManuallyRouted="false" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_PXUAT_NHANVIEN1" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.AspNetUser" Width="1.5" PointX="4.375" PointY="14.5" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_NHANVIEN_AspNetUsers1" />
+        <AssociationConnector Association="aspnet_QLThuocModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.CTPNHAP" Width="1.5" PointX="3.75" PointY="4" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.TONKHO" Width="1.5" PointX="6.75" PointY="5.375" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.TONGHOP" Width="1.5" PointX="8.25" PointY="0.5" />
+        <EntityTypeShape EntityType="aspnet_QLThuocModel.THUOC" Width="1.5" PointX="4" PointY="0.5" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_CTPNHAP_PNHAP1" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_CTPNHAP_TONGHO" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_CTPNHAP_THUOC" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_CTPXUAT_TONGHO" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_CTPXUAT_THUOC1" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_TONKHO_KIEMKE" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_TONKHO_TONGHO" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_TONKHO_THUOC" />
+        <AssociationConnector Association="aspnet_QLThuocModel.FK_TONGHO_THUOC" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

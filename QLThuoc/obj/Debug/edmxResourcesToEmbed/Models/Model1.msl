@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="aspnet_QLThuocModelStoreContainer" CdmEntityContainer="aspnet_QLThuocEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTPXUATs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.CTPXUAT">
+        <MappingFragment StoreEntitySet="CTPXUAT">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+          <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+          <ScalarProperty Name="slxuat" ColumnName="slxuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KIEMKEs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.KIEMKE">
+        <MappingFragment StoreEntitySet="KIEMKE">
+          <ScalarProperty Name="mabb" ColumnName="mabb" />
+          <ScalarProperty Name="ngaykk" ColumnName="ngaykk" />
+          <ScalarProperty Name="manv" ColumnName="manv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="manv" ColumnName="manv" />
+          <ScalarProperty Name="tennv" ColumnName="tennv" />
+          <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PNHAPs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.PNHAP">
+        <MappingFragment StoreEntitySet="PNHAP">
+          <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+          <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+          <ScalarProperty Name="manv" ColumnName="manv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PXUATs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.PXUAT">
+        <MappingFragment StoreEntitySet="PXUAT">
+          <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+          <ScalarProperty Name="ngayxuat" ColumnName="ngayxuat" />
+          <ScalarProperty Name="manv" ColumnName="manv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Disable" ColumnName="Disable" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="aspnet_QLThuocModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="CTPNHAPs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.CTPNHAP">
+        <MappingFragment StoreEntitySet="CTPNHAP">
+          <ScalarProperty Name="slnhap" ColumnName="slnhap" />
+          <ScalarProperty Name="hsd" ColumnName="hsd" />
+          <ScalarProperty Name="noisx" ColumnName="noisx" />
+          <ScalarProperty Name="soks" ColumnName="soks" />
+          <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+          <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TONKHOes">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.TONKHO">
+        <MappingFragment StoreEntitySet="TONKHO">
+          <ScalarProperty Name="slhong" ColumnName="slhong" />
+          <ScalarProperty Name="slton" ColumnName="slton" />
+          <ScalarProperty Name="hsd" ColumnName="hsd" />
+          <ScalarProperty Name="soks" ColumnName="soks" />
+          <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+          <ScalarProperty Name="mabb" ColumnName="mabb" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TONGHOPs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.TONGHOP">
+        <MappingFragment StoreEntitySet="TONGHOP">
+          <ScalarProperty Name="slhaohut" ColumnName="slhaohut" />
+          <ScalarProperty Name="slxuat" ColumnName="slxuat" />
+          <ScalarProperty Name="slnhap" ColumnName="slnhap" />
+          <ScalarProperty Name="sldau" ColumnName="sldau" />
+          <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THUOCs">
+      <EntityTypeMapping TypeName="aspnet_QLThuocModel.THUOC">
+        <MappingFragment StoreEntitySet="THUOC">
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="dvtinh" ColumnName="dvtinh" />
+          <ScalarProperty Name="loaithuoc" ColumnName="loaithuoc" />
+          <ScalarProperty Name="hoatchat" ColumnName="hoatchat" />
+          <ScalarProperty Name="tenthuoc" ColumnName="tenthuoc" />
+          <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

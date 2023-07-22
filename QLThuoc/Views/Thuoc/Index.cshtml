@@ -1,0 +1,71 @@
+﻿@model IEnumerable<QLThuoc.Models.THUOC>
+
+@{
+    ViewBag.Title = "Danh sách thuốc";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                @using (Html.BeginForm("Index", "THUOC"))
+                {
+                    <form class="form-inline ml-3">
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("search", null, htmlAttributes: new { @class = "form-control form-control-navbar",  @placeholder = "Nhập tên thuốc"})
+                            <div class="input-group-append">
+                                <button class="btn" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                }
+            </div>
+            <div class="col-md-2 text-end">
+                <a href="@Url.Action("Create","THUOC")" class="btn btn-sm btn-primary">Tạo mới </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <table class="table table-secondary table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:300px" class="text-center">Tên thuốc</th>
+                    <th style="width:200px" class="text-center">Hoạt chất</th>
+                    <th style="width:100px" class="text-center">Loại thuốc</th>
+                    <th style="width:100px" class="text-center">Đơn vị tính </th>
+                    <th style="width:100px" class="text-center">Đơn giá </th>
+                    <th style="width:200px" class="text-center">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody style="width:auto" class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tenthuoc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hoatchat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loaithuoc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dvtinh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dongia)
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit","Thuoc", new { id = item.mathuoc } )" class="btn btn-sm btn-warning">Sửa</a>
+                            <a href="@Url.Action("Delete","Thuoc", new { id = item.mathuoc } )" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

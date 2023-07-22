@@ -1,0 +1,45 @@
+﻿@model QLThuoc.Models.PXUAT
+
+@{
+    ViewBag.Title = "Xóa phiếu";
+}
+
+<h3>Bạn chắc chắn muốn xóa chứ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.maphieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maphieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIEN.tennv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIEN.tennv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngayxuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngayxuat)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+                        
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> 
+            <button class="btn btn-sm btn-dark">@Html.ActionLink("Trở về", "Index") </button>
+        </div>
+    }
+</div>

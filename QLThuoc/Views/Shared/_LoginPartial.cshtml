@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @*<ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "text-dark m-3" })
+                </li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item"><i class="fa fa-sign-out-alt"></i> Thoát</a>
+                </li>
+            </ul>*@
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="/dist/img/avatar5.png" class="img-circle elevation-2" alt="Admin Image" style="margin-top: 12px;">
+            </div>
+            <div class="info">
+                <a href="/Manage" class="d-block">
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage"})
+                </a>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                }
+                <small>
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="d-block"><i class="fa fa-sign-out-alt"></i> Thoát</a>
+                </small>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <ul style="list-style-type:none;">
+        <li>@Html.ActionLink("Đăng kí", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "text-dark" })</li>
+        <li>@Html.ActionLink("Đăng nhập", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "text-dark" })</li>
+    </ul>
+}

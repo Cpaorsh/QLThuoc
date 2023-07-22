@@ -1,0 +1,95 @@
+﻿@model IEnumerable<QLThuoc.Models.CTPNHAP>
+@{
+    Layout = "~/Views/Account/Layout.cshtml";
+}
+
+<style>
+    /*thead {
+        background-color: wh;
+        color: white
+    }*/
+
+    table {
+        border: 1px solid black;
+    }
+
+    td, th {
+        padding: 5px;
+        font-size: 14px;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            <p>Bộ y tế (Sở y tế):.................</p>
+            <p>Bệnh viện (Trạm y tế):.........</p>
+            <p>Khoa:..................................</p>
+        </div>
+        <div class="col-sm-2 ">
+            <p>MS: 11D/BV-03</p>
+            <p>Số..........</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="text-align:center">
+            <h3>PHIẾU NHẬP THUỐC</h3>
+            <p>Tháng......Năm.............</p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" border="1" style="border-color:black">
+    <tr>
+        <th>Tên thuốc </th>
+        <th>Ngày nhập</th>
+        <th>Ngày sản xuất </th>
+        <th>Hạn sử dụng </th>
+        <th>Số lượng</th>
+        <th>Đơn vị tính</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PNHAP.ngaynhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.noisx)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hsd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slnhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.dvtinh)
+                </td>
+            </tr>
+
+        }
+    </tbody>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@Model.Sum(x => x.slnhap)</td>
+        <td></td>
+    </tr>
+</table>
+
+<div style="text-align:right">
+    <h6>NGƯỜI NHẬP</h6>
+    <p>(Kí tên đóng dấu)</p>
+</div>

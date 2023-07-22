@@ -1,0 +1,1125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="aspnet_QLThuocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="Disable" Type="bit" />
+        </EntityType>
+        <EntityType Name="CTPNHAP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="maphieu" Type="int" Nullable="false" />
+          <Property Name="mathuoc" Type="int" Nullable="false" />
+          <Property Name="soks" Type="int" Nullable="false" />
+          <Property Name="noisx" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="hsd" Type="date" Nullable="false" />
+          <Property Name="slnhap" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTPXUAT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="maphieu" Type="int" Nullable="false" />
+          <Property Name="mathuoc" Type="int" Nullable="false" />
+          <Property Name="slxuat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KIEMKE">
+          <Key>
+            <PropertyRef Name="mabb" />
+          </Key>
+          <Property Name="mabb" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngaykk" Type="date" Nullable="false" />
+          <Property Name="manv" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="manv" />
+          </Key>
+          <Property Name="manv" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="tennv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="chucvu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ngaysinh" Type="date" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PNHAP">
+          <Key>
+            <PropertyRef Name="maphieu" />
+          </Key>
+          <Property Name="maphieu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngaynhap" Type="date" Nullable="false" />
+          <Property Name="manv" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PXUAT">
+          <Key>
+            <PropertyRef Name="maphieu" />
+          </Key>
+          <Property Name="maphieu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngayxuat" Type="date" Nullable="false" />
+          <Property Name="manv" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TONKHO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mabb" Type="int" Nullable="false" />
+          <Property Name="mathuoc" Type="int" Nullable="false" />
+          <Property Name="soks" Type="int" Nullable="false" />
+          <Property Name="hsd" Type="date" Nullable="false" />
+          <Property Name="slton" Type="int" Nullable="false" />
+          <Property Name="slhong" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TONGHOP">
+          <Key>
+            <PropertyRef Name="mathuoc" />
+          </Key>
+          <Property Name="mathuoc" Type="int" Nullable="false" />
+          <Property Name="sldau" Type="int" Nullable="false" />
+          <Property Name="slnhap" Type="int" Nullable="false" />
+          <Property Name="slxuat" Type="int" Nullable="false" />
+          <Property Name="slhaohut" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="THUOC">
+          <Key>
+            <PropertyRef Name="mathuoc" />
+          </Key>
+          <Property Name="mathuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenthuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="hoatchat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loaithuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dvtinh" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="dongia" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CTPNHAP_PNHAP1">
+          <End Role="PNHAP" Type="Self.PNHAP" Multiplicity="1" />
+          <End Role="CTPNHAP" Type="Self.CTPNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PNHAP">
+              <PropertyRef Name="maphieu" />
+            </Principal>
+            <Dependent Role="CTPNHAP">
+              <PropertyRef Name="maphieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPNHAP_TONGHO">
+          <End Role="TONGHOP" Type="Self.TONGHOP" Multiplicity="1" />
+          <End Role="CTPNHAP" Type="Self.CTPNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPNHAP">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPNHAP_THUOC">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="CTPNHAP" Type="Self.CTPNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPNHAP">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPXUAT_PXUAT1">
+          <End Role="PXUAT" Type="Self.PXUAT" Multiplicity="1" />
+          <End Role="CTPXUAT" Type="Self.CTPXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PXUAT">
+              <PropertyRef Name="maphieu" />
+            </Principal>
+            <Dependent Role="CTPXUAT">
+              <PropertyRef Name="maphieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPXUAT_TONGHO">
+          <End Role="TONGHOP" Type="Self.TONGHOP" Multiplicity="1" />
+          <End Role="CTPXUAT" Type="Self.CTPXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPXUAT">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPXUAT_THUOC1">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="CTPXUAT" Type="Self.CTPXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPXUAT">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KIEMKE_NHANVIEN">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="KIEMKE" Type="Self.KIEMKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="KIEMKE">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NHANVIEN_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PNHAP_NHANVIEN1">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PNHAP" Type="Self.PNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="PNHAP">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PXUAT_NHANVIEN1">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PXUAT" Type="Self.PXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="PXUAT">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONKHO_KIEMKE">
+          <End Role="KIEMKE" Type="Self.KIEMKE" Multiplicity="1" />
+          <End Role="TONKHO" Type="Self.TONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KIEMKE">
+              <PropertyRef Name="mabb" />
+            </Principal>
+            <Dependent Role="TONKHO">
+              <PropertyRef Name="mabb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONKHO_TONGHO">
+          <End Role="TONGHOP" Type="Self.TONGHOP" Multiplicity="1" />
+          <End Role="TONKHO" Type="Self.TONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="TONKHO">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONKHO_THUOC">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="TONKHO" Type="Self.TONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="TONKHO">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONGHO_THUOC">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="TONGHOP" Type="Self.TONGHOP" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aspnet_QLThuocModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTPNHAP" EntityType="Self.CTPNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTPXUAT" EntityType="Self.CTPXUAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KIEMKE" EntityType="Self.KIEMKE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PNHAP" EntityType="Self.PNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PXUAT" EntityType="Self.PXUAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TONKHO" EntityType="Self.TONKHO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TONGHOP" EntityType="Self.TONGHOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THUOC" EntityType="Self.THUOC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CTPNHAP_PNHAP1" Association="Self.FK_CTPNHAP_PNHAP1">
+            <End Role="PNHAP" EntitySet="PNHAP" />
+            <End Role="CTPNHAP" EntitySet="CTPNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPNHAP_TONGHO" Association="Self.FK_CTPNHAP_TONGHO">
+            <End Role="TONGHOP" EntitySet="TONGHOP" />
+            <End Role="CTPNHAP" EntitySet="CTPNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPNHAP_THUOC" Association="Self.FK_CTPNHAP_THUOC">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="CTPNHAP" EntitySet="CTPNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPXUAT_PXUAT1" Association="Self.FK_CTPXUAT_PXUAT1">
+            <End Role="PXUAT" EntitySet="PXUAT" />
+            <End Role="CTPXUAT" EntitySet="CTPXUAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPXUAT_TONGHO" Association="Self.FK_CTPXUAT_TONGHO">
+            <End Role="TONGHOP" EntitySet="TONGHOP" />
+            <End Role="CTPXUAT" EntitySet="CTPXUAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPXUAT_THUOC1" Association="Self.FK_CTPXUAT_THUOC1">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="CTPXUAT" EntitySet="CTPXUAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KIEMKE_NHANVIEN" Association="Self.FK_KIEMKE_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="KIEMKE" EntitySet="KIEMKE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NHANVIEN_AspNetUsers1" Association="Self.FK_NHANVIEN_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PNHAP_NHANVIEN1" Association="Self.FK_PNHAP_NHANVIEN1">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="PNHAP" EntitySet="PNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PXUAT_NHANVIEN1" Association="Self.FK_PXUAT_NHANVIEN1">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="PXUAT" EntitySet="PXUAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONKHO_KIEMKE" Association="Self.FK_TONKHO_KIEMKE">
+            <End Role="KIEMKE" EntitySet="KIEMKE" />
+            <End Role="TONKHO" EntitySet="TONKHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONKHO_TONGHO" Association="Self.FK_TONKHO_TONGHO">
+            <End Role="TONGHOP" EntitySet="TONGHOP" />
+            <End Role="TONKHO" EntitySet="TONKHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONKHO_THUOC" Association="Self.FK_TONKHO_THUOC">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="TONKHO" EntitySet="TONKHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONGHO_THUOC" Association="Self.FK_TONGHO_THUOC">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="TONGHOP" EntitySet="TONGHOP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="aspnet_QLThuocModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="aspnet_QLThuocModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="aspnet_QLThuocModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="aspnet_QLThuocModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="CTPXUAT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="maphieu" Type="Int32" Nullable="false" />
+          <Property Name="mathuoc" Type="Int32" Nullable="false" />
+          <Property Name="slxuat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PXUAT" Relationship="Self.FK_CTPXUAT_PXUAT1" FromRole="CTPXUAT" ToRole="PXUAT" />
+          <NavigationProperty Name="TONGHOP" Relationship="aspnet_QLThuocModel.FK_CTPXUAT_TONGHO" FromRole="CTPXUAT" ToRole="TONGHOP" />
+          <NavigationProperty Name="THUOC" Relationship="aspnet_QLThuocModel.FK_CTPXUAT_THUOC1" FromRole="CTPXUAT" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="KIEMKE">
+          <Key>
+            <PropertyRef Name="mabb" />
+          </Key>
+          <Property Name="mabb" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngaykk" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="manv" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_KIEMKE_NHANVIEN" FromRole="KIEMKE" ToRole="NHANVIEN" />
+          <NavigationProperty Name="TONKHOes" Relationship="aspnet_QLThuocModel.FK_TONKHO_KIEMKE" FromRole="KIEMKE" ToRole="TONKHO" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="manv" />
+          </Key>
+          <Property Name="manv" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tennv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaysinh" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KIEMKEs" Relationship="Self.FK_KIEMKE_NHANVIEN" FromRole="NHANVIEN" ToRole="KIEMKE" />
+          <NavigationProperty Name="PNHAPs" Relationship="Self.FK_PNHAP_NHANVIEN1" FromRole="NHANVIEN" ToRole="PNHAP" />
+          <NavigationProperty Name="PXUATs" Relationship="Self.FK_PXUAT_NHANVIEN1" FromRole="NHANVIEN" ToRole="PXUAT" />
+          <NavigationProperty Name="AspNetUser" Relationship="aspnet_QLThuocModel.FK_NHANVIEN_AspNetUsers1" FromRole="NHANVIEN" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="PNHAP">
+          <Key>
+            <PropertyRef Name="maphieu" />
+          </Key>
+          <Property Name="maphieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngaynhap" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="manv" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PNHAP_NHANVIEN1" FromRole="PNHAP" ToRole="NHANVIEN" />
+          <NavigationProperty Name="CTPNHAPs" Relationship="aspnet_QLThuocModel.FK_CTPNHAP_PNHAP1" FromRole="PNHAP" ToRole="CTPNHAP" />
+        </EntityType>
+        <EntityType Name="PXUAT">
+          <Key>
+            <PropertyRef Name="maphieu" />
+          </Key>
+          <Property Name="maphieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngayxuat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="manv" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CTPXUATs" Relationship="Self.FK_CTPXUAT_PXUAT1" FromRole="PXUAT" ToRole="CTPXUAT" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PXUAT_NHANVIEN1" FromRole="PXUAT" ToRole="NHANVIEN" />
+        </EntityType>
+        <Association Name="FK_CTPXUAT_PXUAT1">
+          <End Role="PXUAT" Type="Self.PXUAT" Multiplicity="1" />
+          <End Role="CTPXUAT" Type="Self.CTPXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PXUAT">
+              <PropertyRef Name="maphieu" />
+            </Principal>
+            <Dependent Role="CTPXUAT">
+              <PropertyRef Name="maphieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KIEMKE_NHANVIEN">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="KIEMKE" Type="Self.KIEMKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="KIEMKE">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PNHAP_NHANVIEN1">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PNHAP" Type="Self.PNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="PNHAP">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PXUAT_NHANVIEN1">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PXUAT" Type="Self.PXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="PXUAT">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aspnet_QLThuocEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="CTPXUATs" EntityType="Self.CTPXUAT" />
+          <EntitySet Name="KIEMKEs" EntityType="Self.KIEMKE" />
+          <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <EntitySet Name="PNHAPs" EntityType="Self.PNHAP" />
+          <EntitySet Name="PXUATs" EntityType="Self.PXUAT" />
+          <AssociationSet Name="FK_CTPXUAT_PXUAT1" Association="Self.FK_CTPXUAT_PXUAT1">
+            <End Role="PXUAT" EntitySet="PXUATs" />
+            <End Role="CTPXUAT" EntitySet="CTPXUATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KIEMKE_NHANVIEN" Association="Self.FK_KIEMKE_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="KIEMKE" EntitySet="KIEMKEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PNHAP_NHANVIEN1" Association="Self.FK_PNHAP_NHANVIEN1">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PNHAP" EntitySet="PNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PXUAT_NHANVIEN1" Association="Self.FK_PXUAT_NHANVIEN1">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PXUAT" EntitySet="PXUATs" />
+          </AssociationSet>
+          <EntitySet Name="AspNetUsers" EntityType="aspnet_QLThuocModel.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="aspnet_QLThuocModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="aspnet_QLThuocModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NHANVIEN_AspNetUsers1" Association="aspnet_QLThuocModel.FK_NHANVIEN_AspNetUsers1">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="aspnet_QLThuocModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="CTPNHAPs" EntityType="aspnet_QLThuocModel.CTPNHAP" />
+          <EntitySet Name="TONKHOes" EntityType="aspnet_QLThuocModel.TONKHO" />
+          <EntitySet Name="TONGHOPs" EntityType="aspnet_QLThuocModel.TONGHOP" />
+          <EntitySet Name="THUOCs" EntityType="aspnet_QLThuocModel.THUOC" />
+          <AssociationSet Name="FK_CTPNHAP_PNHAP1" Association="aspnet_QLThuocModel.FK_CTPNHAP_PNHAP1">
+            <End Role="PNHAP" EntitySet="PNHAPs" />
+            <End Role="CTPNHAP" EntitySet="CTPNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPNHAP_TONGHO" Association="aspnet_QLThuocModel.FK_CTPNHAP_TONGHO">
+            <End Role="TONGHOP" EntitySet="TONGHOPs" />
+            <End Role="CTPNHAP" EntitySet="CTPNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPNHAP_THUOC" Association="aspnet_QLThuocModel.FK_CTPNHAP_THUOC">
+            <End Role="THUOC" EntitySet="THUOCs" />
+            <End Role="CTPNHAP" EntitySet="CTPNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPXUAT_TONGHO" Association="aspnet_QLThuocModel.FK_CTPXUAT_TONGHO">
+            <End Role="TONGHOP" EntitySet="TONGHOPs" />
+            <End Role="CTPXUAT" EntitySet="CTPXUATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPXUAT_THUOC1" Association="aspnet_QLThuocModel.FK_CTPXUAT_THUOC1">
+            <End Role="THUOC" EntitySet="THUOCs" />
+            <End Role="CTPXUAT" EntitySet="CTPXUATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONKHO_KIEMKE" Association="aspnet_QLThuocModel.FK_TONKHO_KIEMKE">
+            <End Role="KIEMKE" EntitySet="KIEMKEs" />
+            <End Role="TONKHO" EntitySet="TONKHOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONKHO_TONGHO" Association="aspnet_QLThuocModel.FK_TONKHO_TONGHO">
+            <End Role="TONGHOP" EntitySet="TONGHOPs" />
+            <End Role="TONKHO" EntitySet="TONKHOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONKHO_THUOC" Association="aspnet_QLThuocModel.FK_TONKHO_THUOC">
+            <End Role="THUOC" EntitySet="THUOCs" />
+            <End Role="TONKHO" EntitySet="TONKHOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TONGHO_THUOC" Association="aspnet_QLThuocModel.FK_TONGHO_THUOC">
+            <End Role="THUOC" EntitySet="THUOCs" />
+            <End Role="TONGHOP" EntitySet="TONGHOPs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="aspnet_QLThuocModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="aspnet_QLThuocModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="NHANVIEN" Relationship="aspnet_QLThuocModel.FK_NHANVIEN_AspNetUsers1" FromRole="AspNetUser" ToRole="NHANVIEN" />
+          <NavigationProperty Name="AspNetRoles" Relationship="aspnet_QLThuocModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="aspnet_QLThuocModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="aspnet_QLThuocModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="aspnet_QLThuocModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="aspnet_QLThuocModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NHANVIEN_AspNetUsers1">
+          <End Type="aspnet_QLThuocModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="aspnet_QLThuocModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="aspnet_QLThuocModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CTPNHAP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="maphieu" Type="Int32" Nullable="false" />
+          <Property Name="mathuoc" Type="Int32" Nullable="false" />
+          <Property Name="soks" Type="Int32" Nullable="false" />
+          <Property Name="noisx" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hsd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="slnhap" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PNHAP" Relationship="aspnet_QLThuocModel.FK_CTPNHAP_PNHAP1" FromRole="CTPNHAP" ToRole="PNHAP" />
+          <NavigationProperty Name="TONGHOP" Relationship="aspnet_QLThuocModel.FK_CTPNHAP_TONGHO" FromRole="CTPNHAP" ToRole="TONGHOP" />
+          <NavigationProperty Name="THUOC" Relationship="aspnet_QLThuocModel.FK_CTPNHAP_THUOC" FromRole="CTPNHAP" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="TONKHO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mabb" Type="Int32" Nullable="false" />
+          <Property Name="mathuoc" Type="Int32" Nullable="false" />
+          <Property Name="soks" Type="Int32" Nullable="false" />
+          <Property Name="hsd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="slton" Type="Int32" Nullable="false" />
+          <Property Name="slhong" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KIEMKE" Relationship="aspnet_QLThuocModel.FK_TONKHO_KIEMKE" FromRole="TONKHO" ToRole="KIEMKE" />
+          <NavigationProperty Name="TONGHOP" Relationship="aspnet_QLThuocModel.FK_TONKHO_TONGHO" FromRole="TONKHO" ToRole="TONGHOP" />
+          <NavigationProperty Name="THUOC" Relationship="aspnet_QLThuocModel.FK_TONKHO_THUOC" FromRole="TONKHO" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="TONGHOP">
+          <Key>
+            <PropertyRef Name="mathuoc" />
+          </Key>
+          <Property Name="mathuoc" Type="Int32" Nullable="false" />
+          <Property Name="sldau" Type="Int32" Nullable="false" />
+          <Property Name="slnhap" Type="Int32" Nullable="false" />
+          <Property Name="slxuat" Type="Int32" Nullable="false" />
+          <Property Name="slhaohut" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CTPNHAPs" Relationship="aspnet_QLThuocModel.FK_CTPNHAP_TONGHO" FromRole="TONGHOP" ToRole="CTPNHAP" />
+          <NavigationProperty Name="CTPXUATs" Relationship="aspnet_QLThuocModel.FK_CTPXUAT_TONGHO" FromRole="TONGHOP" ToRole="CTPXUAT" />
+          <NavigationProperty Name="TONKHOes" Relationship="aspnet_QLThuocModel.FK_TONKHO_TONGHO" FromRole="TONGHOP" ToRole="TONKHO" />
+          <NavigationProperty Name="THUOC" Relationship="aspnet_QLThuocModel.FK_TONGHO_THUOC" FromRole="TONGHOP" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="THUOC">
+          <Key>
+            <PropertyRef Name="mathuoc" />
+          </Key>
+          <Property Name="mathuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenthuoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hoatchat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loaithuoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dvtinh" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="dongia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CTPNHAPs" Relationship="aspnet_QLThuocModel.FK_CTPNHAP_THUOC" FromRole="THUOC" ToRole="CTPNHAP" />
+          <NavigationProperty Name="CTPXUATs" Relationship="aspnet_QLThuocModel.FK_CTPXUAT_THUOC1" FromRole="THUOC" ToRole="CTPXUAT" />
+          <NavigationProperty Name="TONKHOes" Relationship="aspnet_QLThuocModel.FK_TONKHO_THUOC" FromRole="THUOC" ToRole="TONKHO" />
+          <NavigationProperty Name="TONGHOP" Relationship="aspnet_QLThuocModel.FK_TONGHO_THUOC" FromRole="THUOC" ToRole="TONGHOP" />
+        </EntityType>
+        <Association Name="FK_CTPNHAP_PNHAP1">
+          <End Type="aspnet_QLThuocModel.PNHAP" Role="PNHAP" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.CTPNHAP" Role="CTPNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PNHAP">
+              <PropertyRef Name="maphieu" />
+            </Principal>
+            <Dependent Role="CTPNHAP">
+              <PropertyRef Name="maphieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPNHAP_TONGHO">
+          <End Type="aspnet_QLThuocModel.TONGHOP" Role="TONGHOP" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.CTPNHAP" Role="CTPNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPNHAP">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPNHAP_THUOC">
+          <End Type="aspnet_QLThuocModel.THUOC" Role="THUOC" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.CTPNHAP" Role="CTPNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPNHAP">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPXUAT_TONGHO">
+          <End Type="aspnet_QLThuocModel.TONGHOP" Role="TONGHOP" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.CTPXUAT" Role="CTPXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPXUAT">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPXUAT_THUOC1">
+          <End Type="aspnet_QLThuocModel.THUOC" Role="THUOC" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.CTPXUAT" Role="CTPXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="CTPXUAT">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONKHO_KIEMKE">
+          <End Type="aspnet_QLThuocModel.KIEMKE" Role="KIEMKE" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.TONKHO" Role="TONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KIEMKE">
+              <PropertyRef Name="mabb" />
+            </Principal>
+            <Dependent Role="TONKHO">
+              <PropertyRef Name="mabb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONKHO_TONGHO">
+          <End Type="aspnet_QLThuocModel.TONGHOP" Role="TONGHOP" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.TONKHO" Role="TONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="TONKHO">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONKHO_THUOC">
+          <End Type="aspnet_QLThuocModel.THUOC" Role="THUOC" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.TONKHO" Role="TONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="TONKHO">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TONGHO_THUOC">
+          <End Type="aspnet_QLThuocModel.THUOC" Role="THUOC" Multiplicity="1" />
+          <End Type="aspnet_QLThuocModel.TONGHOP" Role="TONGHOP" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="mathuoc" />
+            </Principal>
+            <Dependent Role="TONGHOP">
+              <PropertyRef Name="mathuoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="aspnet_QLThuocModelStoreContainer" CdmEntityContainer="aspnet_QLThuocEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTPXUATs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.CTPXUAT">
+              <MappingFragment StoreEntitySet="CTPXUAT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+                <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+                <ScalarProperty Name="slxuat" ColumnName="slxuat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KIEMKEs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.KIEMKE">
+              <MappingFragment StoreEntitySet="KIEMKE">
+                <ScalarProperty Name="mabb" ColumnName="mabb" />
+                <ScalarProperty Name="ngaykk" ColumnName="ngaykk" />
+                <ScalarProperty Name="manv" ColumnName="manv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="manv" ColumnName="manv" />
+                <ScalarProperty Name="tennv" ColumnName="tennv" />
+                <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PNHAPs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.PNHAP">
+              <MappingFragment StoreEntitySet="PNHAP">
+                <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+                <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+                <ScalarProperty Name="manv" ColumnName="manv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PXUATs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.PXUAT">
+              <MappingFragment StoreEntitySet="PXUAT">
+                <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+                <ScalarProperty Name="ngayxuat" ColumnName="ngayxuat" />
+                <ScalarProperty Name="manv" ColumnName="manv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="aspnet_QLThuocModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="CTPNHAPs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.CTPNHAP">
+              <MappingFragment StoreEntitySet="CTPNHAP">
+                <ScalarProperty Name="slnhap" ColumnName="slnhap" />
+                <ScalarProperty Name="hsd" ColumnName="hsd" />
+                <ScalarProperty Name="noisx" ColumnName="noisx" />
+                <ScalarProperty Name="soks" ColumnName="soks" />
+                <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+                <ScalarProperty Name="maphieu" ColumnName="maphieu" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TONKHOes">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.TONKHO">
+              <MappingFragment StoreEntitySet="TONKHO">
+                <ScalarProperty Name="slhong" ColumnName="slhong" />
+                <ScalarProperty Name="slton" ColumnName="slton" />
+                <ScalarProperty Name="hsd" ColumnName="hsd" />
+                <ScalarProperty Name="soks" ColumnName="soks" />
+                <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+                <ScalarProperty Name="mabb" ColumnName="mabb" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TONGHOPs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.TONGHOP">
+              <MappingFragment StoreEntitySet="TONGHOP">
+                <ScalarProperty Name="slhaohut" ColumnName="slhaohut" />
+                <ScalarProperty Name="slxuat" ColumnName="slxuat" />
+                <ScalarProperty Name="slnhap" ColumnName="slnhap" />
+                <ScalarProperty Name="sldau" ColumnName="sldau" />
+                <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THUOCs">
+            <EntityTypeMapping TypeName="aspnet_QLThuocModel.THUOC">
+              <MappingFragment StoreEntitySet="THUOC">
+                <ScalarProperty Name="dongia" ColumnName="dongia" />
+                <ScalarProperty Name="dvtinh" ColumnName="dvtinh" />
+                <ScalarProperty Name="loaithuoc" ColumnName="loaithuoc" />
+                <ScalarProperty Name="hoatchat" ColumnName="hoatchat" />
+                <ScalarProperty Name="tenthuoc" ColumnName="tenthuoc" />
+                <ScalarProperty Name="mathuoc" ColumnName="mathuoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

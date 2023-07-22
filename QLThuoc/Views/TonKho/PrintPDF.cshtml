@@ -1,0 +1,91 @@
+﻿@model IEnumerable<QLThuoc.Models.TONKHO>
+@{
+    Layout = "~/Views/Account/Layout.cshtml";
+}
+
+<style>
+
+    table {
+        border: 1px solid black;
+    }
+
+    td, th {
+        padding: 5px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            <p>Bộ y tế (Sở y tế):.................</p>
+            <p>Bệnh viện (Trạm y tế):.........</p>
+            <p>Khoa:..................................</p>
+            <p> - Người Kiểm kê:...............</p>
+        </div>
+        <div class="col-sm-2 ">
+            <p>MS: 11D/BV-03</p>
+            <p>Số..........</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="text-align:center">
+            <h3>BIÊN BẢN KIÊM KÊ THUỐC</h3>
+            <p>Tháng......Năm.............</p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" border="1" style="border-color:black">
+        <tr>
+            <th>Tên thuốc </th>
+            <th>Đơn vị tính</th>
+            <th>Hạn sử dụng</th>
+            <th>Số lượng tồn</th>
+            <th>Số lượng có vấn đề</th>
+        </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.dvtinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hsd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slton)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slhong)
+                </td>
+            </tr>
+
+        }
+    <tr>
+        <td>Tổng </td>
+        <td></td>
+        <td></td>
+        <td>@Model.Sum(x => x.slton)</td>
+        <td> @Model.Sum(x => x.slhong)</td>
+
+    </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-6" style="text-align:left">
+        <h6>NGƯỜI KIỂM KÊ</h6>
+        <p>(Kí tên đóng dấu)</p>
+    </div>
+
+    <div class="col-6" style="text-align:right">
+        <h6>TRẠM TRƯỞNG</h6>
+        <p>(Kí tên đóng dấu)</p>
+    </div>
+</div>
+

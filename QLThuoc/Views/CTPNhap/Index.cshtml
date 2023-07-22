@@ -1,0 +1,79 @@
+﻿@model IEnumerable<QLThuoc.Models.CTPNHAP>
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                <strong class="text-uppercase text-dark">Thuốc đã nhập</strong>
+            </div>
+            <div class="col-md-2 text-end">
+                <a href="@Url.Action("Create","CTPNhap")" class="btn btn-sm btn-primary">Tạo mới </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-2">
+        <table class="table table-secondary table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:300px" class="text-center">Thuốc</th>
+                    <th style="width:300px" class="text-center">Ngày nhập</th>
+                    <th style="width:300px" class="text-center">Số kiểm soát</th>
+                    <th style="width:300px" class="text-center">Nơi sản xuất</th>
+                    <th style="width:300px" class="text-center">Hạn sử dụng</th>
+                    <th style="width:200px" class="text-center">Số lượng nhập</th>
+                    <th style="width:300px" class="text-center">Đơn vị tính</th>
+                    <th style="width:200px" class="text-center">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody style="width:auto" class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PNHAP.ngaynhap)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.soks)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.noisx)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slnhap)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THUOC.dvtinh)
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit","CTPNhap", new { id = item.id })" class="btn btn-sm btn-warning">Sửa</a>
+                            <a href="@Url.Action("Delete","CTPNhap", new { id = item.id })" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <th>
+                        Tổng
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th> </th>
+                    <th>
+                        @Model.Sum(x => x.slnhap)
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+        </table>
+    </div>
+    @*<div class="card-footer text-end">
+        <a href="@Url.Action("Index","PNhap")" class="btn btn-sm btn-dark">Quay trở lại </a>
+    </div>*@
+</div>

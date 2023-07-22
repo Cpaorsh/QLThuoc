@@ -1,0 +1,88 @@
+﻿@model IEnumerable<QLThuoc.Class.CTPXUATHT>
+@{
+    Layout = "~/Views/Account/Layout.cshtml";
+}
+
+<style>
+
+    table {
+        border: 1px solid black;
+    }
+
+    td, th {
+        padding: 5px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            <p>Bộ y tế (Sở y tế):.................</p>
+            <p>Bệnh viện (Trạm y tế):.........</p>
+            <p>Khoa:..................................</p>
+        </div>
+        <div class="col-sm-2 ">
+            <p>MS: 11D/BV-03</p>
+            <p>Số..........</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="text-align:center">
+            <h3>PHIẾU XUẤT THUỐC</h3>
+            <p>Tháng......Năm.............</p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" border="1" style="border-color:black">
+    <tr>
+        <th>Tên thuốc </th>
+        <th>Ngày xuất</th>
+        <th>Số lượng xuất </th>
+        <th>Đơn vị tính</th>
+        <th>Đơn giá</th>
+        <th>Thành tiền</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PXUAT.ngayxuat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slxuat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.dvtinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.dongia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.thanhtien)
+                </td>
+            </tr>
+
+        }
+        <tr>
+            <td>Tổng </td>
+            <td></td>
+            <td>@Model.Sum(x => x.slxuat)</td>
+            <td> </td>
+            <td> </td>
+            <td> @Model.Sum(x => x.thanhtien)</td>
+
+        </tr>
+    </tbody>
+</table>
+
+<div style="text-align:right">
+    <h6>NGƯỜI XUẤT</h6>
+    <p>(Kí tên đóng dấu)</p>
+</div>
+

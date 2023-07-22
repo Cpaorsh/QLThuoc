@@ -1,0 +1,73 @@
+﻿@model QLThuoc.Models.CTPNHAP
+
+@{
+    ViewBag.Title = "Xóa thuốc nhập";
+}
+
+<h2>Xóa thuốc nhập</h2>
+
+<h3>Bạn chắc chắn muốn xóa chứ?</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PNHAP.maphieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PNHAP.maphieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THUOC.tenthuoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUOC.tenthuoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noisx)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noisx)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.slnhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slnhap)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" />
+            <button class="btn btn-sm btn-dark">@Html.ActionLink("Trở về", "Index")</button>
+        </div>
+    }
+</div>

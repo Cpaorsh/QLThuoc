@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QLThuoc.Models.AspNetUser>
+
+
+<link rel="stylesheet" href="/Content/MvcGrid/mvc-grid.css">
+<section class="content" data-activemenu="menu-manage-accounts">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách tài khoản</h3>
+                        <div class="card-tools">
+                            <form action="/Manage/Accounts" method="get" id="searchForm">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" name="search" value="@ViewBag.Search" placeholder="Tìm tài khoản" id="timTk">
+                                    <div class="input-group-append mr-2" id="btnTimTk">
+                                        <div class="btn btn-sm btn-info">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                    </div>
+                                    &nbsp;
+                                    @Html.ActionLink("Tạo tài khoản", "Register", "Account", new { }, new { @class = "btn btn-sm btn-primary" })
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @*@(Html.Grid(Model).Build(columns => {
+                                columns.Add(model => model.Id).Hidden();
+                                columns.Add(model => model.UserName).Titled("UserName").Css("width25p");
+                                columns.Add(model => model.FullName).Titled("Tên đầy đủ").Css("width30p");
+                                columns.Add(model => model.Email).Titled("Email").Css("width25p");
+                                columns.Add(model => model.TramCanId).Titled("Trạm cân").Css("width25p");
+
+                                columns.Add(model => "<a class='btn btn-xs btn-warning' href='" + Url.Action("AccountEdit", new { id = model.Id }) + "'><i class='fa fa-edit'></i> Sửa</a>").Titled("Sửa").Encoded(false).Css("dt-nowrap");
+                                columns.Add(model => (!model.LockoutEnabled ? "<a class='btn btn-xs btn-warning' href='#' onclick='return setEntryOn(\"" + model.Id + "\", 1)'><i class='fa fa-lock'></i> Khóa</a>" : "<a class='btn btn-xs btn-danger' href='#' onclick='return setEntryOn(\"" + model.Id + "\", 0)'><i class='fa fa-lock'></i> Mở</a>")).Titled("Khóa").Encoded(false).Css("dt-nowrap");
+                                columns.Add(model => "<a class='btn btn-xs btn-warning' href='#' onclick='return resetPassword(\"" + model.Id + "\", 0)'><i class='fa fa-key'></i>Reset PW</a>").Titled("Reset").Encoded(false).Css("dt-nowrap");
+                                columns.Add(model => "<a class='btn btn-xs btn-danger' href='#' onclick='return delEntry(\"" + model.Id + "\")'><i class='fa fa-times-circle'></i> Xóa</a>").Titled("Xóa").Encoded(false).Css("dt-nowrap");
+                            }).Empty("Chưa có dữ liệu").Filterable().Sortable().Pageable(pager => {
+                                pager.ShowPageSizes = false;
+                                pager.PagesToDisplay = 5;
+                                pager.CurrentPage = 1;
+                                pager.RowsPerPage = 20;
+                            }).Css("css-classes").AppendCss("table-hover"))*@
+                        <table class="table">
+                            <tr>
+
+                                <th>
+                                    Tài khoản
+                                </th>
+                                <th>
+                                    Tên nhân viên
+                                </th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NHANVIEN.tennv)
+                                    </td>
+                                    @*<td>
+            <a href="@Url.Action("Edit","Manage", new { id = item.Id })" class="btn btn-sm btn-warning">Sửa</a>
+        </td>*@
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

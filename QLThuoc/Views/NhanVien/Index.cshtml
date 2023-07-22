@@ -1,0 +1,54 @@
+﻿@model IEnumerable<QLThuoc.Models.NHANVIEN>
+
+<div class="card">
+    <div class="card-header ">
+        <div class="row">
+            <div class="col-md-10">
+                <strong class="text-uppercase text-dark">Nhân viên</strong>
+            </div>
+            <div class="col-md-2 text-end">
+                <a href="@Url.Action("Create","Nhanvien")" class="btn btn-sm btn-primary">Tạo mới </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <table class="table table-secondary table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:17%" class="text-center">Tên nhân viên</th>
+                    <th style="width:17%" class="text-center">Chức vụ</th>
+                    <th style="width:17%" class="text-center">Ngày sinh</th>
+                    <th style="width:17%" class="text-center">Địa chỉ</th>
+                    <th style="width:17%" class="text-center">Tài khoản</th>
+                    <th style="width:15%" class="text-center">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody style="width:auto" class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tennv)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.chucvu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ngaysinh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.diachi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit","Nhanvien", new { id = item.manv })" class="btn btn-sm btn-warning">Sửa</a>
+                            <a href="@Url.Action("Delete","Nhanvien", new { id = item.manv })" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+
+        </table>
+    </div>
+</div>

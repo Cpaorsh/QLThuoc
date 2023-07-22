@@ -1,0 +1,74 @@
+﻿@model IEnumerable<QLThuoc.Class.TONGHOPHT>
+@{
+    Layout = "~/Views/Account/Layout.cshtml";
+}
+
+<style>
+
+    table {
+        border: 1px solid black;
+    }
+
+    td, th {
+        padding: 5px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="col-sm-9">
+        <p>Tên đơn vị: Trạm y tế xã Hòa Bình</p>
+        <p>Địa chỉ: Nguyễn Trãi, Hoà Bình, Vũ Thư, Thái Bình</p>
+        <p>Điện thoại:</p>
+        <p>Số:...................</p>
+    </div>
+
+    <div class="col-sm-12" style="text-align:center">
+        <h3>BÁO CÁO XUẤT, NHẬP, TỒN KHO, SỬ DỤNG THUỐC</h3>
+        <p>Tháng......Năm.............</p>
+    </div>
+</div>
+
+
+
+<table class="table table-secondary table-bordered">
+        <tr>
+            <th style="width:100px" class="text-center">Tên thuốc</th>
+            <th style="width:100px" class="text-center">Số lượng tồn kì trước</th>
+            <th style="width:100px" class="text-center">Số lượng nhập</th>
+            <th style="width:100px" class="text-center">Số lượng xuất</th>
+            <th style="width:100px" class="text-center">Số lượng hao hụt</th>
+            <th style="width:100px" class="text-center">Số lượng tồn hiện tại</th>
+        </tr>
+    <tbody style="width:auto" class="text-center">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sldau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slnhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slxuat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slhaohut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.slcuoi)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="col-sm-6 float-right" >
+    <p style="text-align:left">Ngày......, tháng......, năm.....</p>
+    <p style="text-align:center">Cơ sở báo cáo</p>
+    <p style="text-align:right">(Kí tên đóng dấu)</p>
+</div>

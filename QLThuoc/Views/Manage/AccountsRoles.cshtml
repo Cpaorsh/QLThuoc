@@ -1,0 +1,226 @@
+﻿@using System.Data.Entity
+@using Microsoft.AspNet.Identity.Owin;
+@using QLThuoc.Models.Extensions;
+
+@{
+    ViewBag.Title = "<i class='fa fa-user-tag'></i> Phân quyền tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Menu = "Phân quyền";
+    var db = ViewContext.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var dbct = ViewContext.HttpContext.GetOwinContext().GetUserManager<QLThuoc.Models.ApplicationDbContext>();
+    var userQuery = db.Users.Where(x => !x.Disable).Include(u => u.Roles);
+    var users = new List<QLThuoc.Models.ApplicationUser>();
+    var roles = dbct.Roles.ToList();
+    if (!String.IsNullOrEmpty(Request.Params["tim"]))
+    {
+        string tim = Request.Params["tim"].ToLower();
+        users = userQuery.Where(x => x.UserName.ToLower().Contains(tim)).ToList();
+    }
+    else
+    {
+        users = userQuery.ToList();
+    }
+}
+<link rel="stylesheet" href="/Content/MvcGrid/mvc-grid.css">
+<section class="content" data-activemenu="menu-manage-accroles">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <div class="card card-default card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách tài khoản</h3>
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" placeholder="Tìm tài khoản" id="timTk">
+                                <div class="input-group-append" id="btnTimTk">
+                                    <div class="btn btn-sm btn-info">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @*@(Html.Grid(users).Build(columns => {
+                              columns.Add(model => model.Id).Hidden();
+                              columns.Add(model => model.UserName).Titled("UserName").Css("width30p");
+                              columns.Add(model => model.FullName).Titled("Tên đầy đủ").Css("width30p");
+
+                              columns.Add(model => model.RenderButtonRole(roles, model.Roles)).Titled("Quyền ").Encoded(false).Css("dt-nowrap");
+                            }).Empty("Chưa có dữ liệu").Filterable().Sortable().Pageable(pager => {
+                              pager.PageSizes = new Dictionary<int, string> { { 0, "Tất cả" }, { 20, "20" }, { 30, "30" }, { 50, "50" } };
+                              pager.ShowPageSizes = false;
+                              pager.PagesToDisplay = 5;
+                              pager.CurrentPage = 1;
+                              pager.RowsPerPage = 20;
+                            }).Css("css-classes").AppendCss("table-hover"))*@
+                        <!-- Copy từ đây xuống -->
+                        <table class="table ">
+                            <tr>
+
+                                <th>
+                                    Tài khoản
+                                </th>
+                                <th>
+                                    Quyền
+                                </th>
+                            </tr>
+
+                            @foreach (var item in users)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName, new { htmlAttributes = new { @class = "width30p" } })
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.FullName, new { htmlAttributes = new { @class = "width30p" } })
+                                    </td>*@
+                                    <td>
+                                        @{var rederRoles = item.RenderButtonRole(roles, item.Roles);
+                                        }
+                                        @Html.Raw(rederRoles)
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card card-default card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách quyền</h3>
+
+                    </div>
+                    <div class="card-body">
+                        @*@(Html.Grid(roles).Build(columns => {
+                                columns.Add(model => model.Name).Titled("Quyền sử dụng").Css("width100");
+                                //columns.Add(model => "<a class='btn btn-xs btn-danger' href='#' onclick='return delRoleEntry(\"" + model.Id + "\")'><i class='fa fa-times-circle'></i> Xóa</a>").Titled("Xóa").Encoded(false).Css("dt-nowrap");
+                            }).Empty("Chưa có dữ liệu").Css("css-classes").AppendCss("table-hover"))*@
+                        <table class="table">
+                            <tr>
+
+                                <th>
+                                    Quyền sử dụng
+                                </th>
+
+                            </tr>
+
+                            @foreach (var item in roles)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name, new { htmlAttributes = new { @class = "width30p" } })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts {
+    <script src="/Scripts/MvcGrid/mvc-grid.js"></script>
+    <script>
+
+        function addRole(uid, rname) {
+            if (confirm(`Bạn chắc chắn thêm quyền ${rname} cho user này ?`)) {
+                $.ajax({
+                    type: "POST",
+                    data: JSON.stringify({
+                        userid: uid,
+                        rolename: rname
+                    }),
+                    url: "@Url.Action("AddUserRole", "Manage")",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(d) {
+                        location.reload();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        var toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        toast.fire({
+                            type: 'error',
+                            title: 'Đã xảy ra lỗi, phiền bạn hãy thực hiện lại!'
+                        });
+                    }
+                });
+            }
+        }
+
+        function delRole(uid, rname) {
+            if (confirm(`Bạn chắc chắn xóa quyền ${rname} cho user này ?`)) {
+                $.ajax({
+                    type: "POST",
+                    data: JSON.stringify({
+                        userid: uid,
+                        rolename: rname
+                    }),
+                    url: "@Url.Action("DeleteUserRole", "Manage")",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(d) {
+                        location.reload();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        var toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        toast.fire({
+                            type: 'error',
+                            title: 'Đã xảy ra lỗi, phiền bạn hãy thực hiện lại!'
+                        });
+                    }
+                });
+            }
+        }
+
+        $(document).ready(function() {
+            [].forEach.call(document.getElementsByClassName('mvc-grid'), function(element) {
+                new MvcGrid(element);
+            });
+
+          var urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.has('tim')) {
+            $("#timTk").val(urlParams.get('tim'));
+          } else {
+            $("#timTk").val("");
+          }
+
+          $("#btnTimTk").on("click", function () {
+            var searchParams = new URLSearchParams(window.location.search);
+            if (searchParams.has('tim')) {
+              searchParams.set('tim', $("#timTk").val());
+            } else {
+              searchParams.append('tim', $("#timTk").val());
+            }
+            window.location.search = searchParams;
+          });
+
+          $("#timTk").on("keyup", function (event) {
+            if (event.which == 13) {
+              $("#btnTimTk").trigger("click");
+            }
+          });
+        });
+    </script>
+}

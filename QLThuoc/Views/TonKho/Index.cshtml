@@ -1,0 +1,76 @@
+﻿@model IEnumerable<QLThuoc.Models.TONKHO>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                <strong class="text-uppercase text-dark">Thuốc đã kiểm kê</strong>
+            </div>
+            <div class="col-md-2 text-end">
+                <a href="@Url.Action("Create","Tonkho")" class="btn btn-sm btn-primary">Tạo mới </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <table class="table table-secondary table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:100px" class="text-center">Ngày kiểm kê</th>
+                    <th style="width:100px" class="text-center">Tên thuốc</th>
+                    <th style="width:100px" class="text-center">Đơn vị tính</th>
+                    <th style="width:100px" class="text-center">Hạn sử dụng</th>
+                    <th style="width:100px" class="text-center">Số lượng tồn</th>
+                    <th style="width:100px" class="text-center">Số lượng hỏng, vỡ</th>
+                    <th style="width:200px" class="text-center">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody style="width:auto" class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KIEMKE.ngaykk)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THUOC.dvtinh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slton)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slhong)
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit","Tonkho", new { id = item.id } )" class="btn btn-sm btn-warning">Sửa</a>
+                            <a href="@Url.Action("Delete","Tonkho", new { id = item.id } )" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <th>
+                        Tổng
+                    </th>
+                    <th></th>
+
+                    <th></th>
+
+                    <th></th>
+
+                    <th>
+                        @Model.Sum(x => x.slton)
+                    </th>
+                    <th>
+                        @Model.Sum(x => x.slhong)
+                    </th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

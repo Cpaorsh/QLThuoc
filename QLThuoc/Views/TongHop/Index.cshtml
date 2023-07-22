@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QLThuoc.Class.TONGHOPHT>
+
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-11">
+                <strong class="text-uppercase text-dark">Báo cáo sử dụng thuốc </strong>
+            </div>
+            <div class="col-md-1 text-end">
+                <a href="@Url.Action("PrintPDF","TongHop")" class="btn  btn-success">PDF</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <table class="table table-secondary table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:100px" class="text-center">Tên thuốc</th>
+                    <th style="width:100px" class="text-center">Số lượng tồn kì trước</th>
+                    <th style="width:100px" class="text-center">Số lượng nhập</th>
+                    <th style="width:100px" class="text-center">Số lượng xuất</th>
+                    <th style="width:100px" class="text-center">Số lượng hao hụt</th>
+                    <th style="width:100px" class="text-center">Số lượng tồn hiện tại</th>
+                </tr>
+            </thead>
+            <tbody style="width:auto" class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THUOC.tenthuoc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sldau)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slnhap)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slxuat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slhaohut)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.slcuoi)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<QLThuoc.Models.KIEMKE>
+
+<div class="card">
+    <div class="card-header ">
+        <div class="row">
+            <div class="col-md-10">
+                <strong class="text-uppercase text-dark">Kiểm kê</strong>
+            </div>
+            <div class="col-md-2 text-end">
+                <a href="@Url.Action("Create","Kiemke")" class="btn btn-sm btn-primary">Tạo mới </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <table class="table table-secondary table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:25%" class="text-center">Mã biên bản</th>
+                    <th style="width:25%" class="text-center">Ngày kiểm kê</th>
+                    <th style="width:25%" class="text-center">Tên nhân viên</th>
+                    <th style="width:25%" class="text-center">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody style="width:auto" class="text-center">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mabb)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ngaykk)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NHANVIEN.tennv)
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Index","TonKho", new { id = item.mabb } , null)" class="btn btn-sm btn-secondary">Xem</a>
+                            <a href="@Url.Action("Edit","Kiemke", new { id = item.mabb })" class="btn btn-sm btn-warning">Sửa</a>
+                            <a href="@Url.Action("Delete","Kiemke", new { id = item.mabb })" class="btn btn-sm btn-danger">Xóa</a>
+                            <a href="@Url.Action("PrintPDF","TonKho", new { id = item.mabb } , null)" class="btn btn-sm btn-success">PDF</a>
+                        </td>
+                    </tr>
+                }
+
+        </table>
+    </div>
+</div>
